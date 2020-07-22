@@ -1,8 +1,18 @@
+import SvgUri from "expo-svg-uri";
 import React from "react";
-import { Text } from "react-native";
 
+import SVGBackground from "../../../assets/intro_background.svg";
 import SVGLogo from "../../../assets/logo.svg";
-import { Container, LogoContainer, Logo, TextLogo } from "./styles";
+import {
+  Container,
+  LogoContainer,
+  Logo,
+  TextLogo,
+  IntroTitle,
+  IntroDescription,
+  Button,
+  TextStart,
+} from "./styles";
 const Introduction: React.FC = () => {
   return (
     <Container>
@@ -11,7 +21,15 @@ const Introduction: React.FC = () => {
         <TextLogo>Cleanzy</TextLogo>
       </LogoContainer>
 
-      <Text>Introduction</Text>
+      <IntroTitle>Clean Home Clean Life.</IntroTitle>
+      <IntroDescription>
+        Book Cleaners at the Comfort of you home.
+      </IntroDescription>
+
+      <SvgUri source={SVGBackground} width="400px" />
+      <Button>
+        <TextStart>Get Started</TextStart>
+      </Button>
     </Container>
   );
 };
