@@ -8,6 +8,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true
-  },
-  "include": ["src/custom.d.ts"]
+  }
 }

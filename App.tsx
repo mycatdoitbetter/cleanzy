@@ -9,7 +9,7 @@ import { AppLoading } from "expo";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 
-import Introduction from "./src/pages/Introduction";
+import Router from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <>
-      <Introduction />
+      <Router />
       <StatusBar style="auto" />
     </>
   );

@@ -39,7 +39,7 @@ export const IntroTitle = styled.Text`
   position: absolute;
   top: 15%;
 
-  width: 50%;
+  width: 60%;
 `;
 
 export const IntroDescription = styled.Text`

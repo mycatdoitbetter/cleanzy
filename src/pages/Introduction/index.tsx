@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import SvgUri from "expo-svg-uri";
 import React from "react";
 
@@ -13,7 +14,9 @@ import {
   Button,
   TextStart,
 } from "./styles";
+
 const Introduction: React.FC = () => {
+  const { navigate } = useNavigation();
   return (
     <Container>
       <LogoContainer>
@@ -27,7 +30,7 @@ const Introduction: React.FC = () => {
       </IntroDescription>
 
       <SvgUri source={SVGBackground} width="400px" />
-      <Button>
+      <Button onPress={() => navigate("Signin")}>
         <TextStart>Get Started</TextStart>
       </Button>
     </Container>
