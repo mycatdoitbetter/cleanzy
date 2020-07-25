@@ -16,6 +16,7 @@ import {
   LogoContainer,
   Logo,
   TextLogo,
+  GestureButton,
 } from "./styles";
 const Home: React.FC = () => {
   let offset = 0;
@@ -27,8 +28,6 @@ const Home: React.FC = () => {
       const { translationY } = event.nativeEvent;
 
       offset += translationY;
-      console.log(translationY);
-      console.log(opened);
 
       if (translationY >= 150) {
         opened = true;
@@ -79,8 +78,8 @@ const Home: React.FC = () => {
 
   const animatedLogo: any = {
     opacity: translateY.interpolate({
-      inputRange: [-500, 0, 0],
-      outputRange: [0.1, 1, 1],
+      inputRange: [-200, 0, 0],
+      outputRange: [0.1, 1, 0.1],
     }),
   };
 
@@ -96,8 +95,8 @@ const Home: React.FC = () => {
         onHandlerStateChange={onHandlerStateChange}
       >
         <SecondaryContainer style={animatedContainer}>
+          {/* <GestureButton /> */}
           <SelectCleaningContainer />
-
           <SelectFrequencyTabs />
           <SelectExtrasContainer />
         </SecondaryContainer>

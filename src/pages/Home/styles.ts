@@ -8,6 +8,7 @@ export const Container = styled.View`
 
 export const SecondaryContainer = styled(Animated.View)`
   background-color: #fff;
+  border: 1px solid #d9d9d9;
 
   position: absolute;
   bottom: -20%;
@@ -20,6 +21,21 @@ export const SecondaryContainer = styled(Animated.View)`
 export const SelectCleaningContainer = styled.View``;
 export const SelectFrequencyTabs = styled.View``;
 export const SelectExtrasContainer = styled.View``;
+
+export const GestureButton = styled.TouchableOpacity`
+  background-color: #5c4db1;
+  height: 60px;
+  width: 100%;
+  margin-top: 1px;
+
+  /* position: absolute; */
+  /* top: 0px; */
+  margin-left: auto;
+  margin-right: auto;
+
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+`;
 
 export const LogoContainer = styled(Animated.View)`
   align-items: center;
