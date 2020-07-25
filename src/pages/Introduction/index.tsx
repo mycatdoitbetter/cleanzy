@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
-import SvgUri from "expo-svg-uri";
 import React from "react";
+import { ImageBackground, ViewStyle, Dimensions } from "react-native";
 
-import SVGBackground from "../../../assets/intro_background.svg";
+import Background from "../../../assets/_intro.png";
 import SVGLogo from "../../../assets/logo.svg";
 import {
   Container,
@@ -17,6 +17,14 @@ import {
 
 const Introduction: React.FC = () => {
   const { navigate } = useNavigation();
+  const { width, height } = Dimensions.get("window");
+  const background: ViewStyle = {
+    flex: 1,
+    width,
+    height,
+    marginTop: 120,
+    alignItems: "center",
+  };
   return (
     <Container>
       <LogoContainer>
@@ -29,7 +37,11 @@ const Introduction: React.FC = () => {
         Book Cleaners at the Comfort of you home.
       </IntroDescription>
 
-      <SvgUri source={SVGBackground} width="400px" />
+      <ImageBackground
+        source={Background}
+        resizeMode="center"
+        style={background}
+      />
       <Button onPress={() => navigate("Signin")}>
         <TextStart>Get Started</TextStart>
       </Button>

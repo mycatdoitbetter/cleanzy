@@ -63,6 +63,7 @@ export const GoButton = styled(RectButton)`
   width: 280px;
 
   color: #666;
+  opacity: ${({ enabled }) => (enabled ? 1 : 0.7)}
   font-family: "Montserrat_600SemiBold";
   font-size: 18px;
 

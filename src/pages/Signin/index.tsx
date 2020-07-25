@@ -1,9 +1,9 @@
-import SvgUri from "expo-svg-uri";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Keyboard, ImageBackground, Dimensions, ViewStyle } from "react-native";
+import { ImageBackground, Dimensions, ViewStyle } from "react-native";
 
 import SVGLogo from "../../../assets/logo.svg";
-import SVGBackground from "../../../assets/sig.png";
+import Background from "../../../assets/sig.png";
 import {
   Container,
   LogoContainer,
@@ -14,8 +14,22 @@ import {
   GoButton,
   GoButtonText,
 } from "./styles";
+
 const { width, height } = Dimensions.get("window");
+
 const Signin: React.FC = () => {
+  const [name, setName] = useState<string>("");
+  const [canGo, setCanGo] = useState<boolean>(false);
+  const { navigate } = useNavigation();
+  function nameIsFiled(text: string) {
+    if (text.length > 2) {
+      setName(text);
+      setCanGo(true);
+    } else {
+      setCanGo(false);
+    }
+  }
+
   const background: ViewStyle = {
     flex: 1,
     width,
@@ -24,7 +38,6 @@ const Signin: React.FC = () => {
     alignItems: "center",
   };
 
-  const [name, setName] = useState<string>("");
   return (
     <Container>
       <LogoContainer>
@@ -33,13 +46,17 @@ const Signin: React.FC = () => {
       </LogoContainer>
 
       <ImageBackground
-        source={SVGBackground}
+        source={Background}
         resizeMode="center"
         style={background}
       >
         <IntroTitle>What's your name?</IntroTitle>
-        <Input placeholder="Tell me you name!" value={name} />
-        <GoButton>
+        <Input
+          placeholder="Tell me you name!"
+          defaultValue={name}
+          onChangeText={nameIsFiled}
+        />
+        <GoButton enabled={canGo} onPress={() => navigate("Home")}>
           <GoButtonText>Lets Go!</GoButtonText>
         </GoButton>
       </ImageBackground>
